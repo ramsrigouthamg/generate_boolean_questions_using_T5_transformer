@@ -174,7 +174,7 @@ class LoggingCallback(pl.Callback):
 args_dict = dict(
     data_dir="", # path for data files
     output_dir="", # path to save the checkpoints
-    model_name_or_path='./t5_squad',
+    model_name_or_path='t5-base',
     tokenizer_name_or_path='t5-base',
     max_seq_length=256,
     learning_rate=3e-4,
