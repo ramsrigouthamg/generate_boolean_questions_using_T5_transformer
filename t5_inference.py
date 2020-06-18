@@ -14,7 +14,7 @@ model = T5ForConditionalGeneration.from_pretrained('./t5_boolean_questions')
 tokenizer = T5Tokenizer.from_pretrained('t5-base')
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print ("device ",device)
+# print ("device ",device)
 model = model.to(device)
 
 
@@ -57,11 +57,11 @@ start = time.time()
 # passage = "Starlink, of SpaceX, is a satellite constellation project being developed by Elon Musk and team to give satellite Internet go-to access for people in any part of the world. The plan is to comprise thousands of mass-delivered little satellites in low Earth circle, orbit, working in mix with ground handheld devices, for instance, our iPhones. Elon Musk speaks about it as a grand Idea that could change the way we view and access the world around us."
 # truefalse ="yes"
 
-passage ="About 400 years ago, a battle was unfolding about the nature of the Universe. For millennia, astronomers had accurately described the orbits of the planets using a geocentric model, where the Earth was stationary and all the other objects orbited around it."
-truefalse ="yes"
-
-# passage ='''Months earlier, Coca-Cola had begun “Project Kansas.” It sounds like a nuclear experiment but it was just a testing project for the new flavor. In individual surveys, they’d found that more than 75% of respondents loved the taste, 15% were indifferent, and 10% had a strong aversion to the taste to the point that they were angry.'''
+# passage ="About 400 years ago, a battle was unfolding about the nature of the Universe. For millennia, astronomers had accurately described the orbits of the planets using a geocentric model, where the Earth was stationary and all the other objects orbited around it."
 # truefalse ="yes"
+
+passage ='''Months earlier, Coca-Cola had begun “Project Kansas.” It sounds like a nuclear experiment but it was just a testing project for the new flavor. In individual surveys, they’d found that more than 75% of respondents loved the taste, 15% were indifferent, and 10% had a strong aversion to the taste to the point that they were angry.'''
+truefalse ="yes"
 
 # passage ="The US has passed the peak on new coronavirus cases, President Donald Trump said and predicted that some states would reopen this month. The US has over 637000 confirmed Covid-19 cases and over 30826 deaths, the highest for any country in the world."
 # truefalse = "yes"
@@ -78,19 +78,19 @@ input_ids, attention_masks = encoding["input_ids"].to(device), encoding["attenti
 
 
 print ("Context: ",passage)
-print ("\nGenerated Question: ",truefalse)
+# print ("\nGenerated Question: ",truefalse)
 
 # output = greedy_decoding(input_ids,attention_masks)
 # print ("\nGreedy decoding:: ",output)
 
 output = beam_search_decoding(input_ids,attention_masks)
-print ("\nBeam decoding:: ")
+print ("\nBeam decoding [Most accurate questions] ::\n")
 for out in output:
     print(out)
 
 
 output = topkp_decoding(input_ids,attention_masks)
-print ("\nTopKP decoding:: ")
+print ("\nTopKP decoding [Not very accurate but more variety in questions] ::\n")
 for out in output:
     print (out)
 
