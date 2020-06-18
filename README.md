@@ -26,12 +26,18 @@ The output will be **boolean (yes/no)** questions generated from the above input
 ```
 
 ## Inference code
+
+The [trained model](https://drive.google.com/file/d/1NsUIpZio73FrPWQQ2IsMmBF20cvvxO1T/view?usp=sharing) needs to be downloaded and extracted to  **t5_boolean_questions** folder which is placed in the same level as t5_inference.py file.
+
+**t5_boolean_questions** folder will have two files "config.json" and "pytorch_model.bin"
+
 The **t5_inference.py** file has all the code to run the model on any given paragraph.
-The trained model needs to be downloaded and extracted to  **t5_boolean_questions** folder which is placed in the same level as t5_inference.py file. **t5_boolean_questions** will have two files "config.json" and "pytorch_model.bin"
 
 ## Training the model
 The training and validation datasets are present in the **boolq_data** folder.
+
 Install the necessary libraries from **requirements.txt**.
+
 Use any **GPU** machine and run **train.py**
 
 Training this model for 4 epochs (default) took about 5-6 hrs on **p2.xlarge** (AWS ec2)
