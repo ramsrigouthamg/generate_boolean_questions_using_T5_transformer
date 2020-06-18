@@ -2,9 +2,9 @@
 # Generating boolean (yes/no) questions from any content using T5 text-to-text transformer model and BoolQ dataset
 
 
-Using this program you can generate **paraphrases** of any given question.
+Using this program you can generate **boolean (yes/no)** questions from any content.
 
-A detailed Medium blogpost explaining necessary steps can be [found here.](https://medium.com/@ramsrigouthamg/paraphrase-any-question-with-t5-text-to-text-transfer-transformer-pretrained-model-and-cbb9e35f1555)
+A detailed Medium blogpost explaining necessary steps can be [found here.](https://medium.com/@ramsrigouthamg/generating-boolean-yes-no-questions-from-any-content-using-t5-text-to-text-transformer-model-69f2744aff44)
 
 ## Input
 
